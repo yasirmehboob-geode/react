@@ -1,7 +1,7 @@
 import React from "react";
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import header_background from './../../assets/img/header-6.jpg';
+import header_background from './../../assets/img/header-7.jpg';
 
 import './../../Invoice.css';
 import Button from '@mui/material/Button';
@@ -41,6 +41,7 @@ const style = {
         display: 'inline-block',
         marginTop: '-5%',
         textAlign : 'center',
+        // backgroundColor : '#f0eded',
     },
     HeaderFormBox: {
         width : '490px',
@@ -85,7 +86,7 @@ function Header(props) {
                                         <TextField
                                             id="invoice_id"
                                             name='invoice_id'
-                                            label="Invoice ID"
+                                            label="Order #"
                                             variant="standard"
                                             sx={{ marginRight: '20px' }}
                                             value={formik.values.invoice_id}
@@ -98,7 +99,7 @@ function Header(props) {
                                         <TextField
                                             id="customer_lname"
                                             name='customer_lname'
-                                            label="Customer LastName"
+                                            label="Last Name"
                                             variant="standard"
                                             sx={{ marginRight: '20px' }}
                                             value={formik.values.customer_lname}
