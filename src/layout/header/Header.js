@@ -51,8 +51,8 @@ const style = {
 function Header(props) {
 
     const orderFormValidation = yup.object({
-        invoice_id: yup.number('Please entered valid invoice#')
-            .typeError('Please entered valid invoice#')
+        invoice_id: yup.number('Please entered valid Order #')
+            .typeError('Please entered valid Order #')
             .required('Invoice# is required'),
         customer_lname: yup.string()
             .required('Customer lastname is required')
