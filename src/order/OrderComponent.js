@@ -53,7 +53,7 @@ export default function GetOrderDetails() {
                 return (
                         // <Card sx={{ maxWidth: 685 }} key={key}>
                         //     <CardContent>
-                    <Box style={{border:'0px solid black', borderRadius:'20px'}}>
+                    <Box key={key} style={{border:'0px solid black', borderRadius:'20px'}}>
                         <div className="col-md-12 ticket-container" key={key}>
                             <div className="col-xs-12 col-sm-8 ticket-data">
                                 <div className="event-title">
