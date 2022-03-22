@@ -74,7 +74,7 @@ function Header(props) {
     return (
         <Box style={style.HeaderBox}>
             <Box style={style.HeaderImageBox}>
-                <img style={style.HeaderImage} src={header_background}></img>
+                <img style={style.HeaderImage} src={header_background} alt="background"></img>
             </Box>
             <Card style={style.HeaderBottomCard}>
                 <Box style={style.HeaderFormBox}>
