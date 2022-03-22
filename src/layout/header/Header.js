@@ -1,7 +1,7 @@
 import React from "react";
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import header_background from './../../assets/img/header-7.jpg';
+import header_background from './../../assets/img/header-7-min.jpg';
 
 import './../../Invoice.css';
 import Button from '@mui/material/Button';
