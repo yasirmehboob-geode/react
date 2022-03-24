@@ -1,33 +1,65 @@
 import React from "react";
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import header_background from './../../assets/img/header-7-min.jpg';
-
-import './../../Invoice.css';
+import header_background from './../../assets/img/header-7.jpg';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import FormGroup from '@mui/material/FormGroup';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import {makeStyles} from '@mui/styles'
 
-const style = {
+// const style = {
+//     HeaderBox: {
+//         width: '100%',
+//         height: '500px',
+//         textAlign: 'center',
+//         marginBottom : '50px',
+//     },
+//     HeaderImageBox: {
+//         width: '90%',
+//         height: '450px',
+//         marginTop: '10px',
+//         display : 'inline-block',
+//         background : 'black',
+//     },
+//     HeaderImage: {
+//         height: '100%',
+//         width: '100%',
+//         objectFit: 'cover',
+//         border: '0px solid white',
+//         borderTopRightRadius: '20px',
+//         borderTopLeftRadius: '20px',
+//     },
+//     HeaderBottomCard: {
+//         height: '25%',
+//         width: '80%',
+//         border: '0px solid white',
+//         borderRadius: '20px',
+//         display: 'inline-block',
+//         marginTop: '-5%',
+//         textAlign : 'center',
+//         // backgroundColor : '#f0eded',
+//     },
+//     HeaderFormBox: {
+//         width : '490px',
+//         display : 'inline-block',
+//     }
+// }
+
+const useStyles = makeStyles({
     HeaderBox: {
         width: '100%',
         height: '500px',
         textAlign: 'center',
         marginBottom : '50px',
     },
-    HeaderImageBox: {
+    HeaderImage: {
         width: '90%',
         height: '450px',
         marginTop: '10px',
         display : 'inline-block',
-        background : 'black',
-    },
-    HeaderImage: {
-        height: '100%',
-        width: '100%',
         objectFit: 'cover',
         border: '0px solid white',
         borderTopRightRadius: '20px',
@@ -37,19 +69,19 @@ const style = {
         height: '25%',
         width: '80%',
         border: '0px solid white',
-        borderRadius: '20px',
+        borderRadius: 20,
         display: 'inline-block',
         marginTop: '-5%',
         textAlign : 'center',
-        // backgroundColor : '#f0eded',
     },
     HeaderFormBox: {
         width : '490px',
         display : 'inline-block',
     }
-}
+});
 function Header(props) {
 
+    const classes = useStyles();
     const orderFormValidation = yup.object({
         invoice_id: yup.number('Please entered valid Order #')
             .typeError('Please entered valid Order #')
@@ -72,12 +104,12 @@ function Header(props) {
     });
 
     return (
-        <Box style={style.HeaderBox}>
-            <Box style={style.HeaderImageBox}>
-                <img style={style.HeaderImage} src={header_background} alt="background"></img>
+        <Box className={classes.HeaderBox}>
+            <Box>
+                <img className={classes.HeaderImage} src={header_background} alt="ace"></img>
             </Box>
-            <Card style={style.HeaderBottomCard}>
-                <Box style={style.HeaderFormBox}>
+            <Card className={classes.HeaderBottomCard}>
+                <Box className={classes.HeaderFormBox}>
                     <Box className='form_background'>
                         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                             <form onSubmit={formik.handleSubmit}>
