@@ -50,12 +50,12 @@ import { PageLoader } from './../utils/PageLoader';
 //     }
 // }
 
-const SetTime = (setLoading) => {
-    useEffect(() => {
+const SetTime = (setPgLoading) => {
+    // useEffect(() => {
         setTimeout(() => {
-            setLoading(false)
+            setPgLoading(false)
         }, 3000);
-    });
+    // });
 }
 
 const useStyles = makeStyles({
@@ -91,7 +91,7 @@ const useStyles = makeStyles({
 });
 function Header(props) {
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setPgLoading] = useState(true);
     const classes = useStyles();
     const orderFormValidation = yup.object({
         invoice_id: yup.number('Please entered valid Order #')
@@ -120,7 +120,7 @@ function Header(props) {
         
         <Box className={classes.HeaderBox}>
             <Box>
-                <img className={classes.HeaderImage} src={header_background} alt="ace"></img>
+                <img className={classes.HeaderImage} src={header_background} alt="ace" onLoad={() => SetTime(setPgLoading)}></img>
             </Box>
             <Card className={classes.HeaderBottomCard}>
                 <Box className={classes.HeaderFormBox}>
@@ -173,7 +173,6 @@ function Header(props) {
                 </Box>
             </Card>
         </Box>
-        {SetTime(setLoading)}
         </>
     )
 }
