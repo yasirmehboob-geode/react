@@ -9,7 +9,7 @@ import FormGroup from '@mui/material/FormGroup';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { makeStyles } from '@mui/styles'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { PageLoader } from './../utils/PageLoader';
 
 // const style = {
@@ -51,11 +51,9 @@ import { PageLoader } from './../utils/PageLoader';
 // }
 
 const SetTime = (setPgLoading) => {
-    // useEffect(() => {
-        setTimeout(() => {
-            setPgLoading(false)
-        }, 3000);
-    // });
+    setTimeout(() => {
+        setPgLoading(false)
+    }, 3000);
 }
 
 const useStyles = makeStyles({
@@ -116,63 +114,63 @@ function Header(props) {
 
     return (
         <>
-        <PageLoader loading={loading} />
-        
-        <Box className={classes.HeaderBox}>
-            <Box>
-                <img className={classes.HeaderImage} src={header_background} alt="ace" onLoad={() => SetTime(setPgLoading)}></img>
-            </Box>
-            <Card className={classes.HeaderBottomCard}>
-                <Box className={classes.HeaderFormBox}>
-                    <Box className='form_background'>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                            <form onSubmit={formik.handleSubmit}>
-                                <FormGroup className="MuiFormGroup-options" row>
-                                    <FormControl variant="standard">
-                                        <TextField
-                                            id="invoice_id"
-                                            name='invoice_id'
-                                            label="Order #"
-                                            variant="standard"
-                                            sx={{ marginRight: '20px' }}
-                                            value={formik.values.invoice_id}
-                                            onChange={formik.handleChange}
-                                            error={Boolean(formik.errors.invoice_id)}
-                                            helperText={formik.errors.invoice_id}
-                                        />
-                                    </FormControl>
-                                    <FormControl variant="standard">
-                                        <TextField
-                                            id="customer_lname"
-                                            name='customer_lname'
-                                            label="Last Name"
-                                            variant="standard"
-                                            sx={{ marginRight: '20px' }}
-                                            value={formik.values.customer_lname}
-                                            onChange={formik.handleChange}
-                                            error={/*formik.touched.customer_lname &&*/ Boolean(formik.errors.customer_lname)}
-                                            helperText={formik.errors.customer_lname}
-                                        />
+            <PageLoader loading={loading} />
 
-                                    </FormControl>
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        sx={{
-                                            height: '40px',
-                                            marginTop: '10px'
-                                        }}
-                                        type="submit"
-                                    >
-                                        Submit
-                                    </Button>
-                                </FormGroup>
-                            </form>
+            <Box className={classes.HeaderBox}>
+                <Box>
+                    <img className={classes.HeaderImage} src={header_background} alt="ace" onLoad={() => SetTime(setPgLoading)}></img>
+                </Box>
+                <Card className={classes.HeaderBottomCard}>
+                    <Box className={classes.HeaderFormBox}>
+                        <Box className='form_background'>
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                                <form onSubmit={formik.handleSubmit}>
+                                    <FormGroup className="MuiFormGroup-options" row>
+                                        <FormControl variant="standard">
+                                            <TextField
+                                                id="invoice_id"
+                                                name='invoice_id'
+                                                label="Order #"
+                                                variant="standard"
+                                                sx={{ marginRight: '20px' }}
+                                                value={formik.values.invoice_id}
+                                                onChange={formik.handleChange}
+                                                error={Boolean(formik.errors.invoice_id)}
+                                                helperText={formik.errors.invoice_id}
+                                            />
+                                        </FormControl>
+                                        <FormControl variant="standard">
+                                            <TextField
+                                                id="customer_lname"
+                                                name='customer_lname'
+                                                label="Last Name"
+                                                variant="standard"
+                                                sx={{ marginRight: '20px' }}
+                                                value={formik.values.customer_lname}
+                                                onChange={formik.handleChange}
+                                                error={/*formik.touched.customer_lname &&*/ Boolean(formik.errors.customer_lname)}
+                                                helperText={formik.errors.customer_lname}
+                                            />
+
+                                        </FormControl>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            sx={{
+                                                height: '40px',
+                                                marginTop: '10px'
+                                            }}
+                                            type="submit"
+                                        >
+                                            Submit
+                                        </Button>
+                                    </FormGroup>
+                                </form>
+                            </Box>
                         </Box>
                     </Box>
-                </Box>
-            </Card>
-        </Box>
+                </Card>
+            </Box>
         </>
     )
 }
