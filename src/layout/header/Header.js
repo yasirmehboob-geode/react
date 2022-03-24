@@ -8,7 +8,9 @@ import FormControl from '@mui/material/FormControl';
 import FormGroup from '@mui/material/FormGroup';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import {makeStyles} from '@mui/styles'
+import { makeStyles } from '@mui/styles'
+import { useState, useEffect } from 'react';
+import { PageLoader } from './../utils/PageLoader';
 
 // const style = {
 //     HeaderBox: {
@@ -48,18 +50,26 @@ import {makeStyles} from '@mui/styles'
 //     }
 // }
 
+const SetTime = (setLoading) => {
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 3000);
+    });
+}
+
 const useStyles = makeStyles({
     HeaderBox: {
         width: '100%',
         height: '500px',
         textAlign: 'center',
-        marginBottom : '50px',
+        marginBottom: '50px',
     },
     HeaderImage: {
         width: '90%',
         height: '450px',
         marginTop: '10px',
-        display : 'inline-block',
+        display: 'inline-block',
         objectFit: 'cover',
         border: '0px solid white',
         borderTopRightRadius: '20px',
@@ -72,15 +82,16 @@ const useStyles = makeStyles({
         borderRadius: 20,
         display: 'inline-block',
         marginTop: '-5%',
-        textAlign : 'center',
+        textAlign: 'center',
     },
     HeaderFormBox: {
-        width : '490px',
-        display : 'inline-block',
+        width: '490px',
+        display: 'inline-block',
     }
 });
 function Header(props) {
 
+    const [loading, setLoading] = useState(true);
     const classes = useStyles();
     const orderFormValidation = yup.object({
         invoice_id: yup.number('Please entered valid Order #')
@@ -99,11 +110,14 @@ function Header(props) {
         onSubmit: async (values) => {
 
             props.SubmitForm(values);
-            
+
         },
     });
 
     return (
+        <>
+        <PageLoader loading={loading} />
+        
         <Box className={classes.HeaderBox}>
             <Box>
                 <img className={classes.HeaderImage} src={header_background} alt="ace"></img>
@@ -159,6 +173,8 @@ function Header(props) {
                 </Box>
             </Card>
         </Box>
+        {SetTime(setLoading)}
+        </>
     )
 }
 
