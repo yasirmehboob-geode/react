@@ -25,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "pm2 start serve -s build --name aceorders"
+    "deploy": "pm2 start react-scripts start --name aceorders"
   },
   "eslintConfig": {
     "extends": [
