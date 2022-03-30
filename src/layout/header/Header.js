@@ -53,7 +53,7 @@ import { PageLoader } from './../utils/PageLoader';
 const SetTime = (setPgLoading) => {
     setTimeout(() => {
         setPgLoading(false)
-    }, 3000);
+    }, 1000);
 }
 
 const useStyles = makeStyles({
