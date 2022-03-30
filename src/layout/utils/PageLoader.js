@@ -1,6 +1,6 @@
 import './PageLoader.css';
 import React from 'react';
-import pageLoading from './../../assets/img/page-loading.gif';
+import pageLoading from './../../assets/img/page-loading-2.gif';
 
 export function PageLoader(props) {
     return (
