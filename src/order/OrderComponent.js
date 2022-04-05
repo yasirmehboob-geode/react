@@ -85,7 +85,7 @@ export default function GetOrderDetails() {
                                     <Grid item xs={3}>
                                         <div>
                                             <h3>Total Price</h3>
-                                            <p>{invoice.total_order ? parseFloat(invoice.total_order).toFixed(2) : 'N/A'}</p>
+                                            <p><strong style={{color:'#408140'}}>$ {invoice.total_order ? parseFloat(invoice.total_order).toFixed(2) : 'N/A'}</strong></p>
                                         </div>
                                     </Grid>
                                 </Grid>
